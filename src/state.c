@@ -23,13 +23,63 @@ static void update_head(game_state_t* state, unsigned int snum);
 
 /* Task 1 */
 game_state_t* create_default_state() {
-  // TODO: Implement this function.
-  return NULL;
+    // Allocate memory for the game_state_t struct
+    game_state_t* state = (game_state_t*)malloc(sizeof(game_state_t));
+
+    // Set the number of rows
+    state->num_rows = 18;
+
+    // Allocate memory for the board array
+    state->board = (char**)malloc(state->num_rows * sizeof(char*));
+
+    // Define the game board rows
+    char row1[] = "####################";
+    char row2[] = "#                  #";
+    char row3[] = "# d>D    *         #";
+    char row17[] = "####################";
+
+    // Allocate memory for each board row and copy the row contents
+    state->board[0] = strdup(row1);
+    state->board[1] = strdup(row2);
+    state->board[2] = strdup(row3);
+    state->board[3] = strdup(row2);
+    state->board[4] = strdup(row2);
+    state->board[5] = strdup(row2);
+    state->board[6] = strdup(row2);
+    state->board[7] = strdup(row2);
+    state->board[8] = strdup(row2);
+    state->board[9] = strdup(row2);
+    state->board[10] = strdup(row2);
+    state->board[11] = strdup(row2);
+    state->board[12] = strdup(row2);
+    state->board[13] = strdup(row2);
+    state->board[14] = strdup(row2);
+    state->board[15] = strdup(row2);
+    state->board[16] = strdup(row2);
+    state->board[17] = strdup(row17);
+
+    // Set the number of snakes
+    state->num_snakes = 1;
+
+    // Allocate memory for the snakes array
+    state->snakes = (snake_t*)malloc(state->num_snakes * sizeof(snake_t));
+
+    // Initialize the snake
+    state->snakes[0].head_row = 2;
+    state->snakes[0].head_col = 4;
+    state->snakes[0].tail_row = 2;
+    state->snakes[0].tail_col = 2;
+
+    state->snakes[0].live = true;
+
+    return state;
 }
+
 
 /* Task 2 */
 void free_state(game_state_t* state) {
   // TODO: Implement this function.
+
   return;
 }
 
