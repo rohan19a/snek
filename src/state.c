@@ -78,14 +78,22 @@ game_state_t* create_default_state() {
 
 /* Task 2 */
 void free_state(game_state_t* state) {
-  // TODO: Implement this function.
+  for (unsigned int i = 0; i < state->num_rows; i++) {
+    free(state->board[i]);
+  }
+  free(state->board);
 
-  return;
+  free(state->snakes);
+
+  free(state);
 }
+
 
 /* Task 3 */
 void print_board(game_state_t* state, FILE* fp) {
-  // TODO: Implement this function.
+  for (int i = 0; i < state->num_rows; i++) {
+    fprintf(fp, "%s\n", state->board[i]);
+  }
   return;
 }
 
