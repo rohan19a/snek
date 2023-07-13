@@ -166,8 +166,18 @@ static bool is_snake(char c) {
   tail ("wasd").
 */
 static char body_to_tail(char c) {
-  // TODO: Implement this function.
-  return '?';
+    switch (c) {
+        case '^':
+            return 'w';
+        case '<':
+            return 'a';
+        case 'v':
+            return 's';
+        case '>':
+            return 'd';
+        default:
+            return '?';
+    }
 }
 
 /*
@@ -176,8 +186,18 @@ static char body_to_tail(char c) {
   body ("^<v>").
 */
 static char head_to_body(char c) {
-  // TODO: Implement this function.
-  return '?';
+    switch (c) {
+        case 'W':
+            return '^';
+        case 'A':
+            return '<';
+        case 'S':
+            return 'v';
+        case 'D':
+            return '>';
+        default:
+            return '?';
+    }
 }
 
 /*
