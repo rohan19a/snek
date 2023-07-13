@@ -238,9 +238,33 @@ static unsigned int get_next_col(unsigned int cur_col, char c) {
   This function should not modify anything.
 */
 static char next_square(game_state_t* state, unsigned int snum) {
-  // TODO: Implement this function.
+  int direction; //1 for up, 2 down, 3 left, 4 right
+  int headX;
+  int headY;
+
+  for (int i = 0; i < state->num_rows; i++) {
+    for (int j = 0; j < state->board[i]; j++) {
+      char type = get_board_at(i, j);
+      if(is_snake(type)) {
+          if(is_head(type)) {
+            headX = i;
+            headY = j;
+          }
+          if(!is_tail(type)) {
+            if (get_next_row(i, type) < i) {
+              direction =
+
+            }
+
+          }
+      }
+    }
+
+  }
   return '?';
 }
+
+
 
 /*
   Task 4.3
